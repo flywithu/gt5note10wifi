@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <!-- FORKS -->
-  <!-- Contains patches for signature spoofing and a possible slight improvement in screen recording quality,
-       and a patch for camera HAL v1 support restoration.
-       REQUIRED for the camera HAL v1 patch, but the other patches can be reverted if not needed, must also
-       remove android_packages_modules_Permission fork if reverted. -->
+  <!-- Contains a patch for a possible slight improvement in screen recording quality,
+       and patches for camera HAL v1 support restoration.
+       REQUIRED for the camera HAL v1 patches, but the former patch can be reverted if not desired. -->
   <remove-project name="LineageOS/android_frameworks_base" />
   <project name="K9100ii/android_frameworks_base" path="frameworks/base" remote="github" revision="lineage-19.1-ultralegacy" />
-
-  <!-- Contains another patch for signature spoofing - Optional if signature spoofing isn't required, must also
-       revert signature spoofing patches in the android_frameworks_base fork if removed. -->
-  <remove-project name="LineageOS/android_packages_modules_Permission" />
-  <project name="K9100ii/android_packages_modules_Permission" path="packages/modules/Permission" remote="github" revision="lineage-19.1" />
 
   <!-- Contain patches needed since the kernel has no eBPF support - REQUIRED -->
   <remove-project name="platform/system/bpf" />
