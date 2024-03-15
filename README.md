@@ -27,6 +27,6 @@ repo sync --force-sync --no-tags --no-clone-bundle -c
 - Finally, build as you like. For example, for a recovery-installable package:
 ```
 . build/envsetup.sh
-lunch lineage_s5neolte-userdebug
+lunch lineage_gt510wifi-userdebug
 mka otapackage
 ```
