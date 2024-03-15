@@ -1,58 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <!-- FORKS -->
-  <!-- Contains a patch for a possible slight improvement in screen recording quality,
-       and patches for camera HAL v1 support restoration.
-       REQUIRED for the camera HAL v1 patches, but the former patch can be reverted if not desired. -->
-  <remove-project name="LineageOS/android_frameworks_base" />
-  <project name="K9100ii/android_frameworks_base" path="frameworks/base" remote="github" revision="lineage-19.1-ultralegacy" />
 
-  <!-- Contain patches needed since the kernel has no eBPF support - REQUIRED -->
-  <remove-project name="platform/system/bpf" />
-  <project name="K9100ii/android_system_bpf" path="system/bpf" remote="github" revision="android-12L" />
-  <remove-project name="LineageOS/android_system_netd" />
-  <project name="K9100ii/android_system_netd" path="system/netd" remote="github" revision="lineage-19.1" />
+ <!-- Samsung MSM8916 Common Repos -->
+  <project path="device/samsung/msm8916-common" name="retiredtab/android_device_samsung_msm8916-common"  remote="github" revision="lineage-18.1"/>
+  <project path="device/samsung/qcom-common" name="LineageOS/android_device_samsung_qcom-common" remote="github" revision="lineage-18.1"/>
+  <project path="device/samsung/msm8916-common/sepolicy/vendor" name="retiredtab/msm8916_sepolicy_vendor" remote="github" revision="lineage-18.1"/>
 
-  <!-- Contains a fix for Bluetooth calls - REQUIRED -->
-  <remove-project name="LineageOS/android_system_bt" />
-  <project name="K9100ii/android_system_bt" path="system/bt" remote="github" revision="lineage-19.1" />
+ <!-- Samsung Hardware Repo -->
+  <project path="hardware/samsung" name="LineageOS/android_hardware_samsung" remote="github" revision="lineage-18.1"/>
 
-  <!-- Contain further patches for restoring support for camera HAL v1 - REQUIRED -->
-  <remove-project name="LineageOS/android_system_core" />
-  <project name="K9100ii/android_system_core" path="system/core" remote="github" revision="lineage-19.1-ultralegacy" />
-  <remove-project name="LineageOS/android_frameworks_av" />
-  <project name="K9100ii/android_frameworks_av" path="frameworks/av" remote="github" revision="lineage-19.1-ultralegacy" />
+ <!-- Common Samsung MSM8916 Kernel -->
+  <project path="kernel/samsung/msm8916" name="retiredtab/android_kernel_samsung_msm8916" remote="github" revision="lineage-18.1"/>
 
-  <!-- Contains a patch for removing kernel version checking for memfd_create() support - REQUIRED -->
-  <remove-project name="platform/art" />
-  <project name="K9100ii/android_art" path="art" remote="github" revision="lineage-19.1-ultralegacy" />
+ <!-- Vendor Trees (for all devices) -->
+  <project path="vendor/samsung/msm8916-common" name="retiredtab/vendor_samsung_msm8916-common"  remote="github" revision="lineage-18.1"/>
+  <project path="vendor/samsung/gte-common" name="retiredtab/android_vendor_samsung_gte-common"  remote="github" revision="Q10.0"/>
+  <project path="vendor/samsung/gt510wifi" name="retiredtab/android_vendor_samsung_gt510wifi"    remote="github" revision="lineage-18.1"/>
 
-  <!-- Contains a compilation error fix - REQUIRED -->
-  <remove-project name="LineageOS/android_hardware_lineage_interfaces" />
-  <project name="K9100ii/android_hardware_lineage_interfaces" path="hardware/lineage/interfaces" remote="github" revision="lineage-19.1-ultralegacy" />
+  <!-- Qcom audio  -->
+<!--
+  <remove-project name="LineageOS/android_hardware_qcom_audio"/>
+  <project path="hardware/qcom-caf/msm8916/audio" name="Galaxy-MSM8916/android_hardware_qcom_audio"  remote="github" revision="lineage-17.1-caf-msm8916" />
+-->
 
-  <!-- Contains a patch bringing back legacy FunctionFS support for ADB - REQUIRED -->
-  <remove-project name="LineageOS/android_packages_modules_adb" />
-  <project name="K9100ii/android_packages_modules_adb" path="packages/modules/adb" remote="github" revision="lineage-19.1-ultralegacy" />
-  <!-- END OF FORKS -->
+ <!-- Dependencies -->
+  <project path="external/sony/boringssl-compat" name="LineageOS/android_external_sony_boringssl-compat" remote="github" revision="lineage-18.1"/>
 
-  <!-- Open source aptX and aptX HD encoders -->
-  <project name="K9100ii/android_external_aptxenc" path="external/aptxenc" remote="github" revision="android12L" />
+ <!-- arm-eabi-7.2 -->
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-7.2" name="Galaxy-MSM8916/android-prebuilts-gcc-linux-x86-arm-arm-eabi-7.2" remote="github" revision="master"/>
 
-  <!-- Device trees -->
-  <project name="K9100ii/android_device_samsung_universal7580-common" path="device/samsung/universal7580-common" remote="github" revision="lineage-19.1" />
-  <project name="K9100ii/android_device_samsung_s5neolte" path="device/samsung/s5neolte" remote="github" revision="lineage-19.1" />
-  <!-- Vendor trees -->
-  <project name="K9100ii/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="lineage-19.1" />
-  <!-- Kernel sources -->
-  <project name="K9100ii/android_kernel_samsung_universal7580" path="kernel/samsung/universal7580" remote="github" revision="lineage-19.1" />
+ <!-- Galaxy Tab P550 -->
+  <project path="device/samsung/gte-common" name="retiredtab/device_samsung_gte-common"  remote="github" revision="lineage-18.1"/>
+  <project path="device/samsung/gt510wifi" name="retiredtab/android_device_samsung_gt510wifi"  remote="github" revision="lineage-18.1"/>
 
-  <!-- Linaro SLSI BSP sources -->
-  <project name="K9100ii/android_hardware_samsung_slsi-linaro_config" path="hardware/samsung_slsi-linaro/config" remote="github" revision="lineage-19.1" />
-  <project name="K9100ii/android_hardware_samsung_slsi-linaro_exynos" path="hardware/samsung_slsi-linaro/exynos" remote="github" revision="lineage-19.1" />
-  <project name="K9100ii/android_hardware_samsung_slsi-linaro_exynos5" path="hardware/samsung_slsi-linaro/exynos5" remote="github" revision="lineage-19.1" />
-  <project name="K9100ii/android_hardware_samsung_slsi-linaro_graphics" path="hardware/samsung_slsi-linaro/graphics" remote="github" revision="lineage-19.1" />
-  <project name="K9100ii/android_hardware_samsung_slsi-linaro_openmax" path="hardware/samsung_slsi-linaro/openmax" remote="github" revision="lineage-19.1" />
+<!-- device/samsung/gt510wifi vendor/samsung/gt510wifi vendor/samsung/gte-common vendor/samsung/msm8916-common device/samsung/gte-common   device/samsung/msm8916-common  device/samsung/qcom-common hardware/samsung  kernel/samsung/msm8916  external/sony/boringssl-compat prebuilts/gcc/linux-x86/arm/arm-eabi-7.2  -->
 
-  <project name="LineageOS/android_hardware_samsung" path="hardware/samsung" remote="github" revision="lineage-19.1" />
 </manifest>
